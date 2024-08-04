@@ -4,7 +4,7 @@ import express from 'express'
 const router = express.Router();
 
 /**
- * @swagger
+ * @openapi
  * /login:
  *   post:
  *     tags:

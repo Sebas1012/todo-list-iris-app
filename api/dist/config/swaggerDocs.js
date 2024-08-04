@@ -15,7 +15,7 @@ const options = {
             description: 'Documentación de Iris To Do API para prueba técnica',
         },
     },
-    apis: ['src/routes/taskRoutes.ts', 'src/routes/authRoutes.ts'],
+    apis: ['src/routes/taskRoutes.js', 'src/routes/authRoutes.js'],
 };
 const swaggerSpec = (0, swagger_jsdoc_1.default)(options);
 const swaggerDocs = (app, port) => {
