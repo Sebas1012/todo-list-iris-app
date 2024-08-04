@@ -7,7 +7,7 @@ const authControlller_1 = require("../controllers/authControlller");
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 /**
- * @openapi
+ * @swagger
  * /login:
  *   post:
  *     tags:
