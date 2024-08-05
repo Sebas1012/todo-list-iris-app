@@ -1,47 +1,34 @@
-<div class="card">
-  <div class="card-bar">
+<div class="container">
+  <div class="bar">
     <img alt="Iris Logo" src="https://empresas.iris.com.co/login/assets/img/logos/Logo-Iris.svg">
   </div>
-  <div class="card-body">
-    <p>To do list</p>
-    <select class="input-style" name="" id="">Test</select>
-    <input class="input-style" type="text">
-    <p style="font-size: 25px;">All</p>
-    @for (task of tasks; track $index) {
-      <label>
-        <div class="x">
-          <input class="task" type="checkbox" id="myCheckbox">
-          {{ task.title }}
+  <div class="card">
+    <div class="card-body">
+      <form id="task-form" action="">
+        <h1 class="title">To do list</h1>
+        <select [(ngModel)]="selectedTag" class="input-style">
+          @for (task of uniqueTasks; track $index) {
+            <option [value]="task.tag">{{ task.tag }}</option>
+          }
+        </select>
+
+        <input class="input-style" type="text" placeholder="Task title">
+
+        <h2 class="subtitle">{{ selectedTag }}</h2>
+        <div class="tasks-values">
+          @for (task of tasks; track $index) {
+            <div class="task-container">
+              <label class="tasks">
+                <input class="task" type="checkbox" id="myCheckbox">
+                {{ task.title }}
+            </label>
+            <button class="delete-btn"><i class="fa-solid fa-xmark" style="color: #ef6f47;"></i></button>
+            </div>
+          }
         </div>
-      </label>
-    }
-  </div>
-</div>
-
-
-
-
-<!-- <div class="card">
-  <div class="card-bar">
-    <img alt="Iris Logo" src="https://empresas.iris.com.co/login/assets/img/logos/Logo-Iris.svg">
-  </div>
-  <div class="card-body">
-    <div class="content">
-      <div class="1">
-        <h1>To do list</h1>
-        <select name="" id="">Test</select>
-      </div>
-      <div class="2">
-        <h2>All</h2>
-        @for (task of tasks; track $index) {
-        <label>
-          <input class="task" type="checkbox" id="myCheckbox">
-          {{ task.title }}
-        </label>
-      }
-      </div>
+      </form>
     </div>
   </div>
-</div> -->
+</div>
 
 

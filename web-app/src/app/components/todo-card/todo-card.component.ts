@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../../services/tasks.service';
 import { TaskInterface } from '../../interfaces/task.interface';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-card',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './todo-card.component.html',
   styleUrls: ['./todo-card.component.css']
 })
@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class TodoCardComponent implements OnInit {
 
   tasks: TaskInterface[] = [];
+  selectedTag: string = 'All'
+  uniqueTasks: TaskInterface[] = [];
 
   constructor(private taskService: TasksService) {}
 
@@ -25,6 +27,17 @@ export class TodoCardComponent implements OnInit {
   getTasks() {
     this.taskService.getTasks().subscribe({
       next: (tasks) => {
+        const uniqueTags = new Set<string>();
+        const uniqueTasks: TaskInterface[] = [];
+
+        tasks.forEach(task => {
+          if (!uniqueTags.has(task.tag)) {
+            uniqueTags.add(task.tag);
+            uniqueTasks.push(task);
+          }
+        });
+
+        this.uniqueTasks = uniqueTasks;
         this.tasks = tasks;
       },
       error: (error) => {

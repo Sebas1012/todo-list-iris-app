@@ -1,13 +1,14 @@
-.card{
-  height: 80vh;
-  width: 30vw;
+.container{
+  height: 100vh;
+  width: 100vw;
   background-color: #F5F5F5;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 
-.card-bar{
+.bar{
   width: 100%;
   height: 10%;
 
@@ -18,35 +19,106 @@
   background-color: #5CD2C5;
 }
 
-.card-bar img{
+.bar img{
   width: 50%;
   height: 50%;
 }
 
-.card-body{
-  width: 100%;
-  height: 90%;
+.card{
+  width: 50vw;
+  height: 70vh;
+  margin-top: 70px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
-.card-body p{
-  font-size: 30px;
-  font-weight: 600;
+.card-body{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
 }
+
+.title{
+  padding-bottom: 20px;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.subtitle{
+  font-weight: 600;
+  font-size: 25px;
+  border-bottom: 1px solid #CDCDCD;
+  padding: 30px 0 8px 0;
+  margin-bottom: 28px;
+
+}
+
+#task-form{
+  width: 90%;
+  height: 100%;
+}
+
+select, input, option{
+  font-size: 15px;
+  color:  black;
+  margin-top: 8px;
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+
 
 .content{
   width: 50%;
   display: flex;
   flex-direction: column;
-  display: flex;
 }
 
-.x{
+.tasks{
   background-color: white;
-  width: 70%;
+  width: 90%;
   height: 40px;
   margin-bottom: 8px;
-  border-radius: 7px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 20px;
+
+}
+
+.tasks-values{
+  height: 50%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.tasks-values::-webkit-scrollbar {
+  width: 12px;
+}
+
+.tasks-values::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 20px;
+}
+
+.tasks-values::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+.tasks-values::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.task-container{
+  width: 100%;
+
+}
+
+.delete-btn{
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  width: 6%;
 }
 

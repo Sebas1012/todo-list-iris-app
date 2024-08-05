@@ -8,7 +8,7 @@ import { TaskInterface } from '../interfaces/task.interface';
 })
 export class TasksService {
 
-  private BASE_API_URL: string = 'https://66aec30bb05db47acc5842d7.mockapi.io/api/v1/tasks';
+  private BASE_API_URL: string = 'https://66aec30bb05db47acc5842d7.mockapi.io/api/v1/tasks'
 
   constructor(private httpClient: HttpClient) { }
 
