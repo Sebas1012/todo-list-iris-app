@@ -1,0 +1,81 @@
+@base_url  = https://todo-list-iris-app.vercel.app/api/v1
+# Cambiar estos datos!
+@username  = poner_username_aqui
+@password  = poner_password_aqui
+# --------------------------
+@token     = {{ tokenRequest.response.body.accessToken }}
+@task_id   = 1
+@title     = Generar tarea desde archivo http.
+@tag       = Prueba Tecnica
+@completed = true
+
+###
+# @name tokenRequest
+POST {{ base_url }}/auth/login
+Content-Type: application/json
+
+{
+    "username": "{{ username }}",
+    "password": "{{ password }}"
+}
+
+###
+# @name createUser
+POST {{ base_url }}/auth/register
+Content-Type: application/json
+Authorization: Bearer {{ token }}
+
+{
+    "username": "{{ username }}",
+    "password": "{{ password }}"
+}
+
+###
+# @name getTasks
+GET {{ base_url }}/tasks
+Authorization: Bearer {{ token }}
+
+
+###
+# @name getTaskById
+GET {{ base_url }}/tasks/{{ task_id }}
+Authorization: Bearer {{ token }}
+
+###
+# @name createTask
+POST {{ base_url }}/tasks
+Content-Type: application/json
+Authorization: Bearer {{ token }}
+
+{
+    "title": "{{ title }}",
+    "tag": "{{ tag }}",
+    "completed": "{{ completed }}"
+}
+
+###
+# @name updateTask
+POST {{ base_url }}/tasks/{{ task_id }}
+Content-Type: application/json
+Authorization: Bearer {{ token }}
+
+{
+    "title": "{{ title }}",
+    "tag": "{{ tag }}",
+    "completed": "{{ completed }}"
+}
+
+###
+# @name deleteTask
+DELETE {{ base_url }}/tasks/{{ task_id }}
+Authorization: Bearer {{ token }}
+
+###
+# @name completeTask
+DELETE {{ base_url }}/tasks/{{ task_id }}
+Content-Type: application/json
+Authorization: Bearer {{ token }}
+
+{
+    "completed": "{{ completed }}"
+}
