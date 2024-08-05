@@ -1,11 +1,22 @@
 # Iris To Do App
-Este repositorio contiene el codigo fuente de las soluciones a los 2 componentes practicos de la prueba tecnica para el cargo de Dev Jr.
+Este repositorio contiene el codigo fuente de las soluciones a los 2 componentes practicos de la prueba tecnica para el cargo de Dev Backend Jr.
 
 ## Explicacion:
 Este proyecto consta de 2 partes:
-1. **API**: Se encuentra en la carpeta `/api` y esta construida usando TypeScript, Express y JWT, asi como tambien cuenta con su documentacion hecha en Swagger en la carpeta `/api/docs` la cual puede ser cargada y visualizada en [Swagger Editor](https://editor.swagger.io). Finalmente la API se encuentra desplegada en Vercel que como infraestructura usa el servicio de AWS Lambda para desplegar el codigo, la url base es [Todo List Iris API](https://todo-list-iris-app.vercel.app/api/v1/tasks).
+1. **API**: Se encuentra en la carpeta `/api` y esta construida usando TypeScript, Express, Sequalize y JWT, asi como tambien cuenta con su documentacion hecha en Swagger en la carpeta `/api/docs` la cual puede ser cargada y visualizada en [Swagger Editor](https://editor.swagger.io). Finalmente la API se encuentra desplegada en Vercel que como infraestructura usa el servicio de AWS Lambda para desplegar el codigo, la URL base es [Todo List Iris API](https://todo-list-iris-app.vercel.app/api/v1/tasks).
 
    ⚠️**Nota**: Es posible que al intentar hacer una peticion pueda retornar un error `500` ya que cuando el servidor lleva sin un request por mucho tiempo se "suspende" para ahorrar recursos ya que uso una capa gratuita. La solucion es intentar nuevamente, y solo deberia tardar unos segundos en reestablecerse.
+
+   Tambien es importante saber que todos los endpoints estan protegidos y para consumirsen requiere de una autenticacion de tipo `Bearer` cuyo token se genera consumiendo el endpoint `api/v1/auth/token` por medio de una peticion `POST`. El cuerpo de la solicitud debe ser:
+
+   ```json
+   {
+    "username": "",
+    "password": ""
+   }
+   ```
+
+   Las credenciales estaran adjuntas en el correo donde se enviara esta prueba.
 
 3. **Frontend**: Se encuentra en la carpeta `/web-app` y esta construido usando Angular 18. Tambien se encuentra desplegado en Vercel y puede accederse desde [Todo List Iris Web App](https://web-app-nine-olive.vercel.app).
 
@@ -14,7 +25,7 @@ Este proyecto consta de 2 partes:
    Al igual que la nota anterior, tambien puede suceder el error `500` para el cual es la misma solucion.
 
 ## Utilidades:
-Aparte de la coleccion de Postman para consumir los diferentes endpoints de la API, en la carpeta `/api/` se encuentra un archivo `.http` el cual puede ser usado junto a la extension [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) donde tambien se encuentran detallados los endpoints a consumir.
+Aparte de la coleccion de Postman para consumir los diferentes endpoints de la API, en la carpeta `/api` se encuentra un archivo `.http` el cual puede ser usado junto a la extension [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) donde tambien se encuentran detallados los endpoints a consumir.
 
 ## Ejecutar de manera local:
 En caso de que se requiera probar ambos servicios de manera local, adjunto los pasos a seguir para ambos:
@@ -33,6 +44,23 @@ En caso de que se requiera probar ambos servicios de manera local, adjunto los p
    # En caso de que no se desee compilar, se puede ejecutar en modo desarrollo
    npm run dev
    ```
+
+   En caso de querer correr la prueba de manera local es necesario crear un archivo .env en la raiz del proyecto o configurar las siguientes variables de entorno en tu sistema con sus respectivos valores correspondientes
+
+   ```env
+   DB_NAME     = ""
+   DB_USERNAME = ""
+   DB_PASSWORD = ""
+   DB_HOST     = ""
+   SERVER_PORT = 
+   JWT_SECRET  = ""
+   ```
+
+   Al usar Sequalize como ORM se es agnostico al motor de base de datos que se quiera usar, todo desde que sea SQL. En mi caso estoy usando una base de datos PosgreSQL alojada en el servicio [Neon](https://neon.tech), ya que me permite aprovisionarla sin mucho esfuerzo. En caso de querer usar otro motor de base de datos se deben realizar los ajustes en el archivo `/api/src/config/dbConnection.ts` cambiando las opciones de `dialect` por las del motor a usar, adjunto documentacion [Dialect-Specific Things](https://sequelize.org/docs/v6/other-topics/dialect-specific-things/).
+
+   
+
+   
 3. **Frontend**:
    ```bash
    # En este caso ya se deberia contar con angular-cli para la ejecucion del mismo, en caso de que no se instala con el comando
