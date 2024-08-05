@@ -1,11 +1,12 @@
 import { loginUser, registerUser } from '../controllers/authControlller'
+import { authenticateJWT } from '../middleware/authMiddleware';
 import express from 'express'
 
 const router = express.Router();
 
 /**
  * @swagger
- * /login:
+ * /generate_token:
  *   post:
  *     tags:
  *       - Auth
@@ -49,7 +50,7 @@ const router = express.Router();
  *                   type: string
  *                   description: Mensaje de error
  */
-router.post('/login', loginUser);
+router.post('/generate_token', loginUser);
 
 /**
  * @swagger
@@ -59,6 +60,8 @@ router.post('/login', loginUser);
  *       - Auth
  *     summary: Registra un nuevo usuario y devuelve un token de acceso
  *     description: Crea un nuevo usuario en el sistema y devuelve un token de acceso JWT.
+ *     security:
+ *       - bearerAuth: []  # Autenticación JWT
  *     requestBody:
  *       required: true
  *       content:
@@ -97,7 +100,7 @@ router.post('/login', loginUser);
  *                   type: string
  *                   description: Mensaje de error
  */
-router.post('/register', registerUser);
+router.post('/register', authenticateJWT, registerUser);
 
 
 export default router;

@@ -30,9 +30,8 @@ exports.getUser = getUser;
 const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { username, password } = req.body;
     try {
-        const newUser = yield (0, authService_1.createUser)(username, password);
-        const accessToken = (0, authService_1.generateAccessToken)({ username: newUser.username, role: 'user' });
-        res.status(201).json({ accessToken });
+        yield (0, authService_1.createUser)(username, password);
+        res.json({ message: "User created successfully" });
     }
     catch (error) {
         res.status(400).send(error.message);

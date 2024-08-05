@@ -8,7 +8,7 @@ const authMiddleware_1 = require("../middleware/authMiddleware");
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 /**
- * @openapi
+ * @swagger
  * /tasks:
  *   get:
  *     tags:
@@ -52,7 +52,7 @@ const router = express_1.default.Router();
  */
 router.get('/', authMiddleware_1.authenticateJWT, taskController_1.getTasks);
 /**
- * @openapi
+ * @swagger
  * /tasks/{taskId}:
  *   get:
  *     tags:
@@ -115,7 +115,7 @@ router.get('/', authMiddleware_1.authenticateJWT, taskController_1.getTasks);
  */
 router.get('/:taskId', authMiddleware_1.authenticateJWT, taskController_1.getTaskById);
 /**
- * @openapi
+ * @swagger
  * /tasks:
  *   post:
  *     tags:
@@ -185,7 +185,7 @@ router.get('/:taskId', authMiddleware_1.authenticateJWT, taskController_1.getTas
  */
 router.post('/', authMiddleware_1.authenticateJWT, taskController_1.createTask);
 /**
- * @openapi
+ * @swagger
  * /tasks/{taskId}:
  *   put:
  *     tags:
@@ -272,7 +272,7 @@ router.post('/', authMiddleware_1.authenticateJWT, taskController_1.createTask);
  */
 router.put('/:taskId', authMiddleware_1.authenticateJWT, taskController_1.updateTask);
 /**
- * @openapi
+ * @swagger
  * /tasks/{taskId}:
  *   delete:
  *     tags:
@@ -322,7 +322,7 @@ router.put('/:taskId', authMiddleware_1.authenticateJWT, taskController_1.update
  */
 router.delete('/:taskId', authMiddleware_1.authenticateJWT, taskController_1.deleteTask);
 /**
- * @openapi
+ * @swagger
  * /tasks/complete/{taskId}:
  *   patch:
  *     tags:

@@ -21,9 +21,8 @@ export const registerUser = async (req: Request, res: Response) => {
     const { username, password } = req.body;
 
     try {
-        const newUser = await createUser(username, password);
-        const accessToken = generateAccessToken({ username: newUser.username, role: 'user' });
-        res.status(201).json({ accessToken });
+        await createUser(username, password);
+        res.json({ message: "User created successfully" });
     } catch (error) {
         res.status(400).send(error.message);
     }

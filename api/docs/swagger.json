@@ -571,7 +571,7 @@
         }
       }
     },
-    "/login": {
+    "/generate_token": {
       "post": {
         "tags": [
           "Auth"
@@ -645,6 +645,11 @@
         ],
         "summary": "Registra un nuevo usuario y devuelve un token de acceso",
         "description": "Crea un nuevo usuario en el sistema y devuelve un token de acceso JWT.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {

@@ -4,14 +4,14 @@
 @password  = poner_password_aqui
 # --------------------------
 @token     = {{ tokenRequest.response.body.accessToken }}
-@task_id   = 1
+@task_id   = 2
 @title     = Generar tarea desde archivo http.
 @tag       = Prueba Tecnica
 @completed = true
 
 ###
 # @name tokenRequest
-POST {{ base_url }}/auth/login
+POST {{ base_url }}/auth/generate_token
 Content-Type: application/json
 
 {
@@ -55,7 +55,7 @@ Authorization: Bearer {{ token }}
 
 ###
 # @name updateTask
-POST {{ base_url }}/tasks/{{ task_id }}
+PUT {{ base_url }}/tasks/{{ task_id }}
 Content-Type: application/json
 Authorization: Bearer {{ token }}
 
@@ -72,7 +72,7 @@ Authorization: Bearer {{ token }}
 
 ###
 # @name completeTask
-DELETE {{ base_url }}/tasks/{{ task_id }}
+PATCH {{ base_url }}/tasks/complete/{{ task_id }}
 Content-Type: application/json
 Authorization: Bearer {{ token }}
 
