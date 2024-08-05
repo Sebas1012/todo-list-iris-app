@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-bar">
+    <img alt="Iris Logo" src="https://empresas.iris.com.co/login/assets/img/logos/Logo-Iris.svg">
+  </div>
+  <div class="card-body">
+    <p>To do list</p>
+    <select class="input-style" name="" id="">Test</select>
+    <input class="input-style" type="text">
+    <p style="font-size: 25px;">All</p>
+    @for (task of tasks; track $index) {
+      <label>
+        <div class="x">
+          <input class="task" type="checkbox" id="myCheckbox">
+          {{ task.title }}
+        </div>
+      </label>
+    }
+  </div>
+</div>
+
+
+
+
+<!-- <div class="card">
+  <div class="card-bar">
+    <img alt="Iris Logo" src="https://empresas.iris.com.co/login/assets/img/logos/Logo-Iris.svg">
+  </div>
+  <div class="card-body">
+    <div class="content">
+      <div class="1">
+        <h1>To do list</h1>
+        <select name="" id="">Test</select>
+      </div>
+      <div class="2">
+        <h2>All</h2>
+        @for (task of tasks; track $index) {
+        <label>
+          <input class="task" type="checkbox" id="myCheckbox">
+          {{ task.title }}
+        </label>
+      }
+      </div>
+    </div>
+  </div>
+</div> -->
+
+

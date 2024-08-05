@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  font-family: "Montserrat", sans-serif;
+  color: #004646;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  border-color: #CDCDCD;
+}
+
+.input-style{
+  all: unset;
+  background-color: white;
+  border: 1px solid #CDCDCD;
+  width: 80%;
+  height: 7%;
+  border-radius: 7px;
+}
