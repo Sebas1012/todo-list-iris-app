@@ -21,13 +21,13 @@ const options = {
 const swaggerSpec = swaggerJsdoc(options);
 
 
-const saveSwaggerJson = () => {
-  const outputPath = path.resolve(__dirname, '../../docs/swagger.json');
-  fs.mkdirSync(path.dirname(outputPath), { recursive: true }); // Asegúrate de que la carpeta exista
-  fs.writeFileSync(outputPath, JSON.stringify(swaggerSpec, null, 2), 'utf-8');
-};
+// const saveSwaggerJson = () => {
+//   const outputPath = path.resolve(__dirname, '../../docs/swagger.json');
+//   fs.mkdirSync(path.dirname(outputPath), { recursive: true }); // Asegúrate de que la carpeta exista
+//   fs.writeFileSync(outputPath, JSON.stringify(swaggerSpec, null, 2), 'utf-8');
+// };
 
-saveSwaggerJson();
+// saveSwaggerJson();
 
 const swaggerDocs = (app: express.Application, port: number) => {
   app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, { customCssUrl: CSS_URL }));
