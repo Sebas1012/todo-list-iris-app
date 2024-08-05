@@ -6,7 +6,7 @@
     <div class="card-body">
       <form id="task-form" action="">
         <h1 class="title">To do list</h1>
-        <select [(ngModel)]="selectedTag" class="input-style">
+        <select [(ngModel)]="selectedTag" (change)="filterTasks()" class="input-style" name="tagSelect">
           @for (task of uniqueTasks; track $index) {
             <option [value]="task.tag">{{ task.tag }}</option>
           }
@@ -16,13 +16,15 @@
 
         <h2 class="subtitle">{{ selectedTag }}</h2>
         <div class="tasks-values">
-          @for (task of tasks; track $index) {
+          @for (task of filteredTasks; track $index) {
             <div class="task-container">
               <label class="tasks">
-                <input class="task" type="checkbox" id="myCheckbox">
-                {{ task.title }}
-            </label>
-            <button class="delete-btn"><i class="fa-solid fa-xmark" style="color: #ef6f47;"></i></button>
+                <input (change)="toggleTaskCompletion(task)" class="task" type="checkbox" id="myCheckbox" name="task" [checked]="task.completed">
+                <span [ngClass]="{'completed': task.completed}">
+                  {{ task.title }}
+                </span>
+              </label>
+              <button class="delete-btn"><i class="fa-solid fa-xmark" style="color: #ef6f47;"></i></button>
             </div>
           }
         </div>

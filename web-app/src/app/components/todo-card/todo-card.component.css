@@ -25,8 +25,8 @@
 }
 
 .card{
-  width: 50vw;
-  height: 70vh;
+  width: 60%;
+  height: 70%;
   margin-top: 70px;
   display: flex;
   justify-content: center;
@@ -77,10 +77,10 @@ select, input, option{
 .tasks{
   background-color: white;
   width: 90%;
-  height: 40px;
+  height: 50px;
   margin-bottom: 8px;
   border-radius: 10px;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   padding-left: 20px;
 
@@ -112,6 +112,9 @@ select, input, option{
 
 .task-container{
   width: 100%;
+  display: flex; /* Usa Flexbox para alinear elementos */
+  align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+  justify-content: space-between; /* Alinea los elementos con espacio entre ellos */
 
 }
 
@@ -122,3 +125,24 @@ select, input, option{
   width: 6%;
 }
 
+@media (max-width: 1200px) {
+  .card {
+      width: 80%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .card {
+      width: 90%;
+      margin-top: 40px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .card {
+      width: 95%;
+      margin-top: 20px;
+  }
+}
