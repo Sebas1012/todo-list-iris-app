@@ -11,8 +11,8 @@ Este proyecto consta de 2 partes:
 
    ```json
    {
-    "username": "{{ username }}",
-    "password": "{{ password }}"
+    "username": "",
+    "password": ""
    }
    ```
 
