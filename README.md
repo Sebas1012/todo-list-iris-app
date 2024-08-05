@@ -3,9 +3,20 @@ Este repositorio contiene el codigo fuente de las soluciones a los 2 componentes
 
 ## Explicacion:
 Este proyecto consta de 2 partes:
-1. **API**: Se encuentra en la carpeta `/api` y esta construida usando TypeScript, Express y JWT, asi como tambien cuenta con su documentacion hecha en Swagger en la carpeta `/api/docs` la cual puede ser cargada y visualizada en [Swagger Editor](https://editor.swagger.io). Finalmente la API se encuentra desplegada en Vercel que como infraestructura usa el servicio de AWS Lambda para desplegar el codigo, la url base es [Todo List Iris API](https://todo-list-iris-app.vercel.app/api/v1/tasks).
+1. **API**: Se encuentra en la carpeta `/api` y esta construida usando TypeScript, Express, Sequalize y JWT, asi como tambien cuenta con su documentacion hecha en Swagger en la carpeta `/api/docs` la cual puede ser cargada y visualizada en [Swagger Editor](https://editor.swagger.io). Finalmente la API se encuentra desplegada en Vercel que como infraestructura usa el servicio de AWS Lambda para desplegar el codigo, la url base es [Todo List Iris API](https://todo-list-iris-app.vercel.app/api/v1/tasks).
 
    ⚠️**Nota**: Es posible que al intentar hacer una peticion pueda retornar un error `500` ya que cuando el servidor lleva sin un request por mucho tiempo se "suspende" para ahorrar recursos ya que uso una capa gratuita. La solucion es intentar nuevamente, y solo deberia tardar unos segundos en reestablecerse.
+
+   Tambien es importante que todos los endpoints estan protegidos y para consumirsen requiere de una autenticacion de tipo `Bearer` cuyo token se genera consumiendo el endpoint `api/v1/auth/token` por medio de una peticion `POST`. El cuerpo de la solicitud debe ser:
+
+   ```json
+   {
+    "username": "{{ username }}",
+    "password": "{{ password }}"
+   }
+   ```
+
+   Las credenciales estaran adjuntas en el correo donde se enviara esta prueba.
 
 3. **Frontend**: Se encuentra en la carpeta `/web-app` y esta construido usando Angular 18. Tambien se encuentra desplegado en Vercel y puede accederse desde [Todo List Iris Web App](https://web-app-nine-olive.vercel.app).
 
