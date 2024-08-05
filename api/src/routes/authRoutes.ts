@@ -4,7 +4,7 @@ import express from 'express'
 const router = express.Router();
 
 /**
- * @openapi
+ * @swagger
  * /login:
  *   post:
  *     tags:
@@ -52,7 +52,7 @@ const router = express.Router();
 router.post('/login', loginUser);
 
 /**
- * @openapi
+ * @swagger
  * /register:
  *   post:
  *     tags:

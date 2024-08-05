@@ -5,7 +5,7 @@ import express from 'express';
 const router = express.Router();
 
 /**
- * @openapi
+ * @swagger
  * /tasks:
  *   get:
  *     tags:
@@ -50,7 +50,7 @@ const router = express.Router();
 router.get('/', authenticateJWT, getTasks);
 
 /**
- * @openapi
+ * @swagger
  * /tasks/{taskId}:
  *   get:
  *     tags:
@@ -114,7 +114,7 @@ router.get('/', authenticateJWT, getTasks);
 router.get('/:taskId', authenticateJWT, getTaskById);
 
 /**
- * @openapi
+ * @swagger
  * /tasks:
  *   post:
  *     tags:
@@ -185,7 +185,7 @@ router.get('/:taskId', authenticateJWT, getTaskById);
 router.post('/', authenticateJWT, createTask);
 
 /**
- * @openapi
+ * @swagger
  * /tasks/{taskId}:
  *   put:
  *     tags:
@@ -273,7 +273,7 @@ router.post('/', authenticateJWT, createTask);
 router.put('/:taskId', authenticateJWT, updateTask);
 
 /**
- * @openapi
+ * @swagger
  * /tasks/{taskId}:
  *   delete:
  *     tags:
@@ -324,7 +324,7 @@ router.put('/:taskId', authenticateJWT, updateTask);
 router.delete('/:taskId', authenticateJWT, deleteTask);
 
 /**
- * @openapi
+ * @swagger
  * /tasks/complete/{taskId}:
  *   patch:
  *     tags:

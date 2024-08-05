@@ -14,8 +14,19 @@ const options = {
             version: '1.0.0',
             description: 'Documentación de Iris To Do API para prueba técnica',
         },
+        servers: [
+            {
+                url: "https://todo-list-iris-app.vercel.app/",
+                description: "Production server",
+            },
+            {
+                url: "http://localhost:3000",
+                description: "Development server",
+            },
+        ],
     },
-    apis: ['src/routes/taskRoutes.ts', 'src/routes/authRoutes.ts'],
+    basePath: '/',
+    apis: ['./routes/authRoutes.js'],
     // apis: ['src/routes/taskRoutes.js', 'src/routes/authRoutes.js'],
 };
 const swaggerSpec = (0, swagger_jsdoc_1.default)(options);
