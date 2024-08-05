@@ -1,7 +1,7 @@
-@base_url  = http://localhost:3000/api/v1
+@base_url  = https://todo-list-iris-app.vercel.app/api/v1
 # Cambiar estos datos!
-@username  = sebas1012
-@password  = sebas1230
+@username  = ??
+@password  = ??
 # --------------------------
 @token     = {{ tokenRequest.response.body.accessToken }}
 @task_id   = 2
@@ -11,7 +11,7 @@
 
 ###
 # @name tokenRequest
-POST {{ base_url }}/auth/generate_token
+POST {{ base_url }}/auth/token
 Content-Type: application/json
 
 {

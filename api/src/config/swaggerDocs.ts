@@ -20,6 +20,7 @@ const options = {
 
 const swaggerSpec = swaggerJsdoc(options);
 
+// Debi comentarlo por el deploy a vercel, ya que internamente no deja escribir files.
 
 // const saveSwaggerJson = () => {
 //   const outputPath = path.resolve(__dirname, '../../docs/swagger.json');
