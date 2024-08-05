@@ -6,7 +6,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /login:
+ * /token:
  *   post:
  *     tags:
  *       - Auth
@@ -50,7 +50,7 @@ const router = express.Router();
  *                   type: string
  *                   description: Mensaje de error
  */
-router.post('/login', loginUser);
+router.post('/token', loginUser);
 
 /**
  * @swagger

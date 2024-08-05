@@ -9,7 +9,7 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 /**
  * @swagger
- * /login:
+ * /token:
  *   post:
  *     tags:
  *       - Auth
@@ -53,7 +53,7 @@ const router = express_1.default.Router();
  *                   type: string
  *                   description: Mensaje de error
  */
-router.post('/login', authControlller_1.loginUser);
+router.post('/token', authControlller_1.loginUser);
 /**
  * @swagger
  * /register:
