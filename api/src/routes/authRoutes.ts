@@ -6,7 +6,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /generate_token:
+ * /login:
  *   post:
  *     tags:
  *       - Auth
@@ -50,7 +50,7 @@ const router = express.Router();
  *                   type: string
  *                   description: Mensaje de error
  */
-router.post('/generate_token', loginUser);
+router.post('/login', loginUser);
 
 /**
  * @swagger
