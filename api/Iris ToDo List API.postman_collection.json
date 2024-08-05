@@ -1,0 +1,356 @@
+{
+	"info": {
+		"_postman_id": "0b9e01f2-cdcf-47fd-9864-ed4331aa68d7",
+		"name": "Iris ToDo List API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15201268"
+	},
+	"item": [
+		{
+			"name": "generateToken",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"iris-sv\",\r\n    \"password\": \"Iris2024\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://todo-list-iris-app.vercel.app/api/v1/auth/token",
+					"protocol": "https",
+					"host": [
+						"todo-list-iris-app",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImlyaXMtc3YiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyMjgyMDI5NCwiZXhwIjoxNzIyODIzODk0fQ.bqueq1tT9xgr7VbPvVCzMS0k5Ew6De8cXipVIjc9eAw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pruebapsm-2\",\r\n    \"password\": \"Iris2025\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://todo-list-iris-app.vercel.app/api/v1/auth/register",
+					"protocol": "https",
+					"host": [
+						"todo-list-iris-app",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTasks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBydWViYXBzbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzIyODE4MDQ5LCJleHAiOjE3MjI4MjE2NDl9.V4x4wIUGJ5o8CJe0Gxidy6EI-klTBlnWYNh8l61UAm0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://todo-list-iris-app.vercel.app/api/v1/tasks",
+					"protocol": "https",
+					"host": [
+						"todo-list-iris-app",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTaskById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBydWViYXBzbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzIyODE4MDQ5LCJleHAiOjE3MjI4MjE2NDl9.V4x4wIUGJ5o8CJe0Gxidy6EI-klTBlnWYNh8l61UAm0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://todo-list-iris-app.vercel.app/api/v1/tasks/1",
+					"protocol": "https",
+					"host": [
+						"todo-list-iris-app",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTask",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBydWViYXBzbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzIyODE4MDQ5LCJleHAiOjE3MjI4MjE2NDl9.V4x4wIUGJ5o8CJe0Gxidy6EI-klTBlnWYNh8l61UAm0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Crear coleccion desde Postman\",\r\n    \"tag\": \"Prueba Tecnica\",\r\n    \"completed\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://todo-list-iris-app.vercel.app/api/v1/tasks",
+					"protocol": "https",
+					"host": [
+						"todo-list-iris-app",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTask",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBydWViYXBzbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzIyODE4MDQ5LCJleHAiOjE3MjI4MjE2NDl9.V4x4wIUGJ5o8CJe0Gxidy6EI-klTBlnWYNh8l61UAm0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Crear coleccion desde Postman - Actualizada 1\",\r\n    \"tag\": \"Prueba Tecnica\",\r\n    \"completed\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://todo-list-iris-app.vercel.app/api/v1/tasks/2",
+					"protocol": "https",
+					"host": [
+						"todo-list-iris-app",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTask",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBydWViYXBzbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzIyODE4MDQ5LCJleHAiOjE3MjI4MjE2NDl9.V4x4wIUGJ5o8CJe0Gxidy6EI-klTBlnWYNh8l61UAm0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://todo-list-iris-app.vercel.app/api/v1/tasks/3",
+					"protocol": "https",
+					"host": [
+						"todo-list-iris-app",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "completeTask",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBydWViYXBzbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzIyODE4MDQ5LCJleHAiOjE3MjI4MjE2NDl9.V4x4wIUGJ5o8CJe0Gxidy6EI-klTBlnWYNh8l61UAm0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"completed\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://todo-list-iris-app.vercel.app/api/v1/tasks/complete/2",
+					"protocol": "https",
+					"host": [
+						"todo-list-iris-app",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"complete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
